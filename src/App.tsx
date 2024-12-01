@@ -1,5 +1,6 @@
 import { Button } from './components/ui/Button';
 import { PlusIcon } from './icons/PlusIcon';
+import { ShareIcon } from './icons/ShareIcon';
 
 function App() {
   return (
@@ -8,9 +9,14 @@ function App() {
         variant='primary'
         text='Click'
         size='md'
-        startIcon={<PlusIcon />}
+        startIcon={<PlusIcon size={'lg'} />}
       />
-      <Button variant='secondary' text='Click' size='lg' />
+      <Button
+        variant='secondary'
+        text='Click'
+        size='md'
+        startIcon={<ShareIcon size={'lg'} />}
+      />
     </>
   );
 }
