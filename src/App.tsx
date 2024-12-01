@@ -5,18 +5,20 @@ import { ShareIcon } from './icons/ShareIcon';
 function App() {
   return (
     <>
-      <Button
-        variant='primary'
-        text='Click'
-        size='md'
-        startIcon={<PlusIcon size={'lg'} />}
-      />
-      <Button
-        variant='secondary'
-        text='Click'
-        size='md'
-        startIcon={<ShareIcon size={'lg'} />}
-      />
+      <div className='flex flex-row'>
+        <Button
+          variant='secondary'
+          text='Click'
+          size='md'
+          startIcon={<ShareIcon size={'lg'} />}
+        />
+        <Button
+          variant='primary'
+          text='Click'
+          size='md'
+          startIcon={<PlusIcon size={'lg'} />}
+        />
+      </div>
     </>
   );
 }
