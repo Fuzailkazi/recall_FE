@@ -1,7 +1,10 @@
+import { Button } from './components/ui/Button';
+
 function App() {
   return (
     <>
-      <h1 className='text-5xl font-bold underline'>Hello world!</h1>
+      <Button variant='primary' text='Click' size='sm' />
+      <Button variant='secondary' text='Click' size='lg' />
     </>
   );
 }
