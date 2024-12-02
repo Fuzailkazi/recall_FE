@@ -1,3 +1,4 @@
+import Card from './components/Card';
 import { Button } from './components/ui/Button';
 import { PlusIcon } from './icons/PlusIcon';
 import { ShareIcon } from './icons/ShareIcon';
@@ -8,17 +9,18 @@ function App() {
       <div className='flex flex-row  justify-end items-center'>
         <Button
           variant='secondary'
-          text='Click'
+          text='Share'
           size='md'
           startIcon={<ShareIcon size={'lg'} />}
         />
         <Button
           variant='primary'
-          text='Click'
+          text='Add Content'
           size='md'
           startIcon={<PlusIcon size={'lg'} />}
         />
       </div>
+      <Card />
     </>
   );
 }
