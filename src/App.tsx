@@ -5,7 +5,7 @@ import { ShareIcon } from './icons/ShareIcon';
 function App() {
   return (
     <>
-      <div className='flex flex-row'>
+      <div className='flex flex-row  justify-end items-center'>
         <Button
           variant='secondary'
           text='Click'
