@@ -7,7 +7,7 @@ export interface ButtonProps {
   text: string;
   startIcon?: ReactElement;
   endIcon?: ReactElement;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const variantStyles = {
@@ -24,7 +24,8 @@ const sizeStyles = {
 export const Button = (props: ButtonProps) => {
   return (
     <button
-      className={`${variantStyles[props.variant]} flex  ${
+      onClick={props.onClick}
+      className={`${variantStyles[props.variant]} flex cursor-pointer ${
         sizeStyles[props.size]
       }`}
     >

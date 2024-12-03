@@ -2,11 +2,19 @@ import Card from './components/Card';
 import { Button } from './components/ui/Button';
 import { PlusIcon } from './icons/PlusIcon';
 import { ShareIcon } from './icons/ShareIcon';
-
+import { CreateContentModal } from './components/CreateContentModal';
+import { useState } from 'react';
 function App() {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
       <div className='p-4'>
+        <CreateContentModal
+          open={modalOpen}
+          onClose={() => {
+            setModalOpen(false);
+          }}
+        />
         <div className='flex justify-end items-center gap-2'>
           <Button
             variant='secondary'
@@ -16,6 +24,9 @@ function App() {
           />
           <Button
             variant='primary'
+            onClick={() => {
+              setModalOpen(true);
+            }}
             text='Add Content'
             size='md'
             startIcon={<PlusIcon size={'lg'} />}
