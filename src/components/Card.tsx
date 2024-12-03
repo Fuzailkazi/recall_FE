@@ -3,10 +3,10 @@ import { ShareIcon } from '../icons/ShareIcon';
 interface CardProps {
   title: string;
   link: string;
-  type: 'twitter | youtube';
+  type: 'twitter' | 'youtube';
 }
 
-const Card = (props: CardProps) => {
+const Card = ({ type, link, title }: CardProps) => {
   return (
     <div>
       <div className='bg-white rounded-md border outline-slate-100 p-8 max-w-72 border'>
@@ -15,28 +15,36 @@ const Card = (props: CardProps) => {
             <div className='pr-2 text-gray-500'>
               <ShareIcon size={'lg'} />
             </div>
-            {props.title}
+            {title}
           </div>
           <div className='flex justify-between items-center'>
             <div className='pr-2 text-gray-500'>
               <ShareIcon size={'lg'} />
             </div>
-            <ShareIcon size={'lg'} />
+            <div className='pr-2'>
+              <a href={link} target='_blank'>
+                <ShareIcon size={'lg'} />
+              </a>
+            </div>
           </div>
         </div>
         <div className='pt-4'>
-          {/* <iframe
-            className='w-full'
-            src='https://www.youtube.com/embed/4V-l0u_N6Ik?si=kdUb6FbwinMc6a38'
-            title='YouTube video player'
-            frameBorder='0'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-            referrerPolicy='strict-origin-when-cross-origin'
-            allowFullScreen
-          ></iframe> */}
-          <blockquote className='twitter-tweet'>
-            <a href='https://twitter.com/username/status/807811447862468608'></a>
-          </blockquote>
+          {type === 'youtube' && (
+            <iframe
+              className='w-full'
+              src={link.replace('watch', 'embed')}
+              title='YouTube video player'
+              frameBorder='0'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              referrerPolicy='strict-origin-when-cross-origin'
+              allowFullScreen
+            ></iframe>
+          )}
+          {type === 'twitter' && (
+            <blockquote className='twitter-tweet'>
+              <a href={link.replace('x.com', 'twitter.com')}></a>
+            </blockquote>
+          )}
         </div>
       </div>
     </div>

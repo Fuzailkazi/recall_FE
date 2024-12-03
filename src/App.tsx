@@ -20,7 +20,16 @@ function App() {
           startIcon={<PlusIcon size={'lg'} />}
         />
       </div>
-      <Card />
+      <Card
+        type='twitter'
+        link='https://x.com/fuzailkazi_/status/1844260689369846046'
+        title='first'
+      />
+      <Card
+        type='youtube'
+        link='https://www.youtube.com/watch?v=Nnop2walGmM&list=RDGMEMCMFH2exzjBeE_zAHHJOdxgVM4V-l0u_N6Ik&index=2'
+        title='first'
+      />
     </>
   );
 }
