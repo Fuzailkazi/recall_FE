@@ -1,7 +1,7 @@
 export function Sidebar() {
   return (
-    <div>
-      <div></div>
+    <div className='h-screen bg-white border-r w-72 fixed left-0 top-0'>
+      <div>hi there</div>
     </div>
   );
 }
