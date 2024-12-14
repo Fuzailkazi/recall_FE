@@ -9,7 +9,13 @@ const Signup = () => {
         <Input placeholder='username' />
         <Input placeholder='password' />
         <div className='flex justify-center items-center p-4'>
-          <Button variant='primary' text='signup' size='md' fullWidth={true} />
+          <Button
+            variant='primary'
+            text='signup'
+            size='md'
+            fullWidth={true}
+            loading={true}
+          />
         </div>
       </div>
     </div>
