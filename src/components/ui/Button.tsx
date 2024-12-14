@@ -30,10 +30,10 @@ export const Button = (props: ButtonProps) => {
       className={`${variantStyles[props.variant]} flex cursor-pointer ${
         sizeStyles[props.size] +
         `${props.fullWidth ? ' w-full flex justify-center items-center' : ''} ${
-          loading ? 'opacity-45' : ''
+          props.loading ? 'opacity-45' : ''
         }`
       }`}
-      disabled={true}
+      disabled={props.loading}
     >
       <div className='flex items-center'>
         {props.startIcon ? (
