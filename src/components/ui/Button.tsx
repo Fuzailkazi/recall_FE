@@ -8,6 +8,8 @@ export interface ButtonProps {
   startIcon?: ReactElement;
   endIcon?: ReactElement;
   onClick?: () => void;
+  fullWidth?: boolean;
+  loading?: boolean;
 }
 
 const variantStyles = {
@@ -26,8 +28,12 @@ export const Button = (props: ButtonProps) => {
     <button
       onClick={props.onClick}
       className={`${variantStyles[props.variant]} flex cursor-pointer ${
-        sizeStyles[props.size]
+        sizeStyles[props.size] +
+        `${props.fullWidth ? ' w-full flex justify-center items-center' : ''} ${
+          loading ? 'opacity-45' : ''
+        }`
       }`}
+      disabled={true}
     >
       <div className='flex items-center'>
         {props.startIcon ? (
