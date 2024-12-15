@@ -9,9 +9,9 @@ export function Sidebar() {
         <div className='pr-4 pt-2 text-purple-800 text-3xl'>
           <LogoIcon size={'lg'} />
         </div>
-        Brainly
+        Recall
       </div>
-      <div className='pt-4'>
+      <div className='pt-4 pl-6'>
         <SidebarItem text='Twitter' icon={<TwitterIcon size={'lg'} />} />
         <SidebarItem text='Youtube' icon={<YoutubeIcon size={'lg'} />} />
       </div>
