@@ -3,10 +3,12 @@ import { Button } from '../components/ui/Button';
 import { Input } from '../components/Input';
 import axios from 'axios';
 import { BACKEND_URL } from '../config';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const usernameRef = useRef<HTMLInputElement>();
   const passwordRef = useRef<HTMLInputElement>();
+  const navigate = useNavigate();
 
   const api = axios.create({
     baseURL: BACKEND_URL,
@@ -15,6 +17,7 @@ const Signup = () => {
   async function signup() {
     const username = usernameRef.current?.value;
     const password = passwordRef.current?.value;
+
     console.log(BACKEND_URL);
     try {
       // Make API request
@@ -29,11 +32,12 @@ const Signup = () => {
       } else {
         alert(response.data?.message || 'You have signed up!');
       }
+      navigate('/signin');
     } catch (error) {
       console.error('Error Details:', error); // Log the full error object
 
       alert('Failed to sign up. Please try again.');
-    } // 2:47:48
+    }
   }
 
   return (
