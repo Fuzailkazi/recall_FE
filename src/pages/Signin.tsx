@@ -13,7 +13,7 @@ const Signin = () => {
             variant='primary'
             text='signin'
             size='md'
-            fullWidth={true}
+            fullWidth={false}
             loading={true}
           />
         </div>

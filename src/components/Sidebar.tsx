@@ -11,7 +11,7 @@ export function Sidebar() {
         </div>
         Recall
       </div>
-      <div className='pt-4 pl-6'>
+      <div className='pt-4'>
         <SidebarItem text='Twitter' icon={<TwitterIcon size={'lg'} />} />
         <SidebarItem text='Youtube' icon={<YoutubeIcon size={'lg'} />} />
       </div>
