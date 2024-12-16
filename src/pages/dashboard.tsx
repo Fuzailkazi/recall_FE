@@ -7,6 +7,7 @@ import { Sidebar } from '../components/Sidebar';
 import { useState } from 'react';
 function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <>
       <div>
