@@ -6,6 +6,8 @@ import { CreateContentModal } from '../components/CreateContentModal';
 import { Sidebar } from '../components/Sidebar';
 import { useEffect, useState } from 'react';
 import { useContent } from '../hooks/useContent';
+import axios from 'axios';
+import { BACKEND_URL } from '../config';
 function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false);
   const { contents, refresh } = useContent();
@@ -27,12 +29,6 @@ function Dashboard() {
           />
           <div className='flex justify-end items-center gap-2'>
             <Button
-              variant='secondary'
-              text='Share'
-              size='md'
-              startIcon={<ShareIcon size={'lg'} />}
-            />
-            <Button
               variant='primary'
               onClick={() => {
                 setModalOpen(true);
@@ -40,6 +36,27 @@ function Dashboard() {
               text='Add Content'
               size='md'
               startIcon={<PlusIcon size={'lg'} />}
+            />
+            <Button
+              variant='secondary'
+              text='Share'
+              size='md'
+              onClick={async () => {
+                const response = await axios.post(
+                  `${BACKEND_URL}/brain/share`,
+                  {
+                    share: true,
+                  },
+                  {
+                    headers: {
+                      Authorization: localStorage.getItem('token'),
+                    },
+                  }
+                );
+                const shareUrl = `http://localhost:5173/share/${response.data.hash}`;
+                alert(shareUrl);
+              }}
+              startIcon={<ShareIcon size={'lg'} />}
             />
           </div>
 
