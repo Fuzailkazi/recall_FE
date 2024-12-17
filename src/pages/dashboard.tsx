@@ -4,11 +4,15 @@ import { PlusIcon } from '../icons/PlusIcon';
 import { ShareIcon } from '../icons/ShareIcon';
 import { CreateContentModal } from '../components/CreateContentModal';
 import { Sidebar } from '../components/Sidebar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useContent } from '../hooks/useContent';
 function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false);
-  const contents = useContent();
+  const { contents, refresh } = useContent();
+
+  useEffect(() => {
+    refresh();
+  }, [modalOpen]);
 
   return (
     <>
@@ -39,7 +43,7 @@ function Dashboard() {
             />
           </div>
 
-          <div className='flex gap-4'>
+          <div className='flex flex-wrap gap-4'>
             {contents.map(({ type, link, title }) => (
               <Card type={type} link={link} title={title} />
             ))}

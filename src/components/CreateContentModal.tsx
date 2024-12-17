@@ -34,6 +34,8 @@ export function CreateContentModal({ open, onClose }) {
         },
       }
     );
+
+    onClose();
   }
   return (
     <div>
