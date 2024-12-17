@@ -9,7 +9,7 @@ const api = axios.create({
 export function useContent() {
   const [contents, setContents] = useState([]);
 
-  useEffect(() => {
+  function refresh() {
     const response = api
       .get(`${BACKEND_URL}/content`, {
         headers: {
@@ -19,7 +19,18 @@ export function useContent() {
       .then((response) => {
         setContents(response.data.content);
       });
+  }
+
+  useEffect(() => {
+    refresh();
+    const interval = setInterval(() => {
+      refresh();
+    }, 10 * 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
-  return contents;
+  return { contents, refresh };
 }
